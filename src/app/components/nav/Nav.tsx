@@ -2,11 +2,16 @@
 import { useRef, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { motion } from 'framer-motion';
-import { useEscapeKey } from '@/hooks/use-escape-key-hook';
+import { useEscapeKey } from '@/app/hooks/use-escape-key-hook';
 import { NavButton } from './NavButton';
 import { NavList } from './NavList';
+import { RefObject } from 'react';
 
-type NavbarProps = {};
+type NavbarProps = {
+  isMobile: boolean;
+  isActive: boolean;
+  handleIsActiveFalse: () => void;
+};
 
 const useClickOutside = (callback: () => void) => {
   const ref = useRef<HTMLElement | null>(null);
