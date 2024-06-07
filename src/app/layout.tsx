@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Header />
-        <p>test</p>
+
         <main>{children}</main>
         <div id="portal"></div>
       </body>
