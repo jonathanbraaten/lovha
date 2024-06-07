@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from 'next/link';
 const navListItems: { id: number; path: string; name: string }[] = [
   { id: 1, path: '/', name: 'Hjem' },
   { id: 2, path: '', name: 'Spill' },
