@@ -3,6 +3,8 @@ import dynamic from 'next/dynamic';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { Header } from './components/header/Header';
+import { PrismicPreview } from '@prismicio/next';
+import { repositoryName } from '@/prismicio';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -19,6 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <PrismicPreview repositoryName={repositoryName} />
         <Header />
 
         <main>{children}</main>
