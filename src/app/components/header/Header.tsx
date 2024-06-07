@@ -4,6 +4,7 @@ import { HamburgerButton } from './HamburgerButton';
 import { useActive } from '@/app/hooks/use-active-hook';
 import { useMobile } from '@/app/hooks/use-mobile-hook';
 import { useEffect } from 'react';
+
 export const Header = () => {
   const { isActive, handleIsActiveFalse, handleIsActiveTrue } = useActive();
   const [isMobile] = useMobile('768');

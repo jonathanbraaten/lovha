@@ -1,5 +1,5 @@
+'use client';
 import { useEffect } from 'react';
-
 export const useEscapeKey = (callback: () => void) => {
   useEffect(() => {
     const handleKeyEvent = (e: KeyboardEvent) => {
