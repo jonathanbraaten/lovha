@@ -24,7 +24,9 @@ export default function RootLayout({
         <PrismicPreview repositoryName={repositoryName} />
         <Header />
 
-        <main>{children}</main>
+        <main className="main">
+          <section className="main-wrapper">{children}</section>
+        </main>
         <div id="portal"></div>
       </body>
     </html>
