@@ -6,6 +6,7 @@ export const Avatars = () => (
   <>
     {avatars.map(({ id, role, firstName, lastName, image }) => (
       <article className="flex flex-col gap-2" key={id}>
+    
         <Image
           loading="lazy"
           width={200}

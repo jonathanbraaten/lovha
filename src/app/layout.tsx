@@ -19,14 +19,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Header />
-<<<<<<< HEAD
-        <main>{children}</main>
-=======
 
         <main className="main">
           <section className="main-wrapper">{children}</section>
         </main>
->>>>>>> about
         <div id="portal"></div>
       </body>
     </html>

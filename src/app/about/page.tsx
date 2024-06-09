@@ -1,4 +1,4 @@
-import { Banner } from './banner';
+import { Banner } from './Banner';
 import { Team } from './Team';
 import { Content } from './Content';
 export default function About() {
