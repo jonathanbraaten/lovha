@@ -1,5 +1,5 @@
-import Image from 'next/image';
-import heroBanner from '/public/johannes-blenke-13AogvLZbV4-unsplash.jpg';
+import Image from "next/image";
+import heroBanner from "/public/johannes-blenke-13AogvLZbV4-unsplash.jpg";
 export const Hero = () => (
   <section>
     <Image

@@ -1,31 +1,6 @@
 .card_layout {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    column-gap: 15px;
-    row-gap: 30px;
-    grid-template-rows: max-content 1fr;
-    
-   
-
-  
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  column-gap: 15px;
+  row-gap: 30px;
 }
-.card_layout__card {
-display: grid;
-grid-template-rows: subgrid;
-grid-row: span 3;
-
-}
-.card_layout__card_img {
-   grid-row: 1;    
-}
-
-.card_layout__card_body {
-    grid-row: 2; 
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-.card_layout__card_footer {
-    display: inline-flex; gap: 10px;
-   grid-row: 3; }
-
