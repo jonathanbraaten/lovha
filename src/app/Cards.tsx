@@ -17,7 +17,7 @@ export const HomeCards = () => {
               height={500}
               alt=""
             ></Image>
-            <p>{title}</p>
+            <p className=" mt-2">{title}</p>
           </div>
 
           <Link className="flex gap-2" href={path}>
