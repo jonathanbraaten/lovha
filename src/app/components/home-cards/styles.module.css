@@ -14,16 +14,16 @@ display: grid;
 grid-template-rows: subgrid;
 grid-row: span 3;
 
-
 }
 .card_layout__card_img {
-   grid-row: 1; 
-
-   
+   grid-row: 1;    
 }
 
 .card_layout__card_body {
     grid-row: 2; 
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 .card_layout__card_footer {
     display: inline-flex; gap: 10px;

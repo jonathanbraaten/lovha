@@ -8,19 +8,19 @@ export const HomeCards = () => {
   return (
     <section className={styles.card_layout}>
       {cardsData.map(({ id, path, text, title, image }) => (
-        <article className={`${styles.card_layout__card} bg-white`}  key={id}>
+        <article className={`${styles.card_layout__card} border rounded-md shadow-raised p-1`}  key={id}>
       <div>
       <Image 
-            className={`${styles.card_layout__card_img} max-w-full block`} 
+            className={`${styles.card_layout__card_img} max-w-full block rounded-md`} 
             src={image}  alt={`img-of-${image}-text`}></Image>
       </div>
            
-            <div className={`${styles.card_layout__card_body}`} >
-            <p>{title}</p>
+            <div className={`${styles.card_layout__card_body} px-4`} >
+            <p className='text-xl'>{title}</p>
               <p>{text}</p>
             </div>
 
-<Link className={`${styles.card_layout__card_footer}`} href={path}>
+<Link className={`${styles.card_layout__card_footer} p-4`} href={path}>
        <span>Les mer</span>
          <FaLongArrowAltRight  size={25}/>
           </Link>
