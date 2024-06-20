@@ -30,6 +30,28 @@
 				"__TYPE__": "FieldContent",
 				"value": "six",
 				"type": "Text"
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Ex velit in in culpa fugiat officia do nisi culpa pariatur. Nisi magna et nostrud."
+						}
+					}
+				]
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Position"
+						}
+					}
+				]
 			}
 		},
 		"items": []

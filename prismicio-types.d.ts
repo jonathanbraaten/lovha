@@ -36,7 +36,41 @@ export type BannerDocument<Lang extends string = string> =
     Lang
   >;
 
-export type AllDocumentTypes = BannerDocument;
+type FallbrosDocumentDataSlicesSlice = FallBrosSlice;
+
+/**
+ * Content for Fallbros documents
+ */
+interface FallbrosDocumentData {
+  /**
+   * Slice Zone field in *Fallbros*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: fallbros.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<FallbrosDocumentDataSlicesSlice>;
+}
+
+/**
+ * Fallbros document from Prismic
+ *
+ * - **API ID**: `fallbros`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type FallbrosDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<FallbrosDocumentData>,
+    "fallbros",
+    Lang
+  >;
+
+export type AllDocumentTypes = BannerDocument | FallbrosDocument;
 
 /**
  * Primary content in *FallBros → Default → Primary*
@@ -61,6 +95,26 @@ export interface FallBrosSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   alt: prismic.KeyTextField;
+
+  /**
+   * title field in *FallBros → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: fall_bros.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * description field in *FallBros → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: fall_bros.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
 }
 
 /**
@@ -157,6 +211,9 @@ declare module "@prismicio/client" {
     export type {
       BannerDocument,
       BannerDocumentData,
+      FallbrosDocument,
+      FallbrosDocumentData,
+      FallbrosDocumentDataSlicesSlice,
       AllDocumentTypes,
       FallBrosSlice,
       FallBrosSliceDefaultPrimary,
