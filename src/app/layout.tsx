@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { PrismicPreview } from "@prismicio/next";
+import { repositoryName } from "@/prismicio";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Header } from "./components/header/Header";
@@ -25,6 +27,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <div id="portal"></div>
+        <PrismicPreview repositoryName={repositoryName} />
       </body>
     </html>
   );

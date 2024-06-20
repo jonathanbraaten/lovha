@@ -4,98 +4,81 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type HeroDocumentDataSlicesSlice = HeroBannerSlice;
-
 /**
- * Content for hero documents
+ * Content for Banner documents
  */
-interface HeroDocumentData {
+interface BannerDocumentData {
   /**
-   * Slice Zone field in *hero*
-   *
-   * - **Field Type**: Slice Zone
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.slices[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#slices
-   */
-  slices: prismic.SliceZone<HeroDocumentDataSlicesSlice> /**
-   * Meta Title field in *hero*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A title of the page used for social media and search engines
-   * - **API ID Path**: hero.meta_title
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */;
-  meta_title: prismic.KeyTextField;
-
-  /**
-   * Meta Description field in *hero*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A brief summary of the page
-   * - **API ID Path**: hero.meta_description
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  meta_description: prismic.KeyTextField;
-
-  /**
-   * Meta Image field in *hero*
+   * banner field in *Banner*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: hero.meta_image
-   * - **Tab**: SEO & Metadata
+   * - **API ID Path**: banner.banner
+   * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#image
    */
-  meta_image: prismic.ImageField<never>;
+  banner: prismic.ImageField<never>;
 }
 
 /**
- * hero document from Prismic
+ * Banner document from Prismic
  *
- * - **API ID**: `hero`
+ * - **API ID**: `banner`
  * - **Repeatable**: `false`
  * - **Documentation**: https://prismic.io/docs/custom-types
  *
  * @typeParam Lang - Language API ID of the document.
  */
-export type HeroDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithoutUID<Simplify<HeroDocumentData>, "hero", Lang>;
+export type BannerDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<BannerDocumentData>,
+    "banner",
+    Lang
+  >;
 
-export type AllDocumentTypes = HeroDocument;
+export type AllDocumentTypes = BannerDocument;
 
 /**
- * Default variation for HeroBanner Slice
+ * Primary content in *Hero → Default → Primary*
+ */
+export interface HeroSliceDefaultPrimary {
+  /**
+   * Image field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for Hero Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type HeroBannerSliceDefault = prismic.SharedSliceVariation<
+export type HeroSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Record<string, never>,
+  Simplify<HeroSliceDefaultPrimary>,
   never
 >;
 
 /**
- * Slice variation for *HeroBanner*
+ * Slice variation for *Hero*
  */
-type HeroBannerSliceVariation = HeroBannerSliceDefault;
+type HeroSliceVariation = HeroSliceDefault;
 
 /**
- * HeroBanner Shared Slice
+ * Hero Shared Slice
  *
- * - **API ID**: `hero_banner`
- * - **Description**: HeroBanner
+ * - **API ID**: `hero`
+ * - **Description**: Hero
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type HeroBannerSlice = prismic.SharedSlice<
-  "hero_banner",
-  HeroBannerSliceVariation
->;
+export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
 declare module "@prismicio/client" {
   interface CreateClient {
@@ -107,13 +90,13 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
-      HeroDocument,
-      HeroDocumentData,
-      HeroDocumentDataSlicesSlice,
+      BannerDocument,
+      BannerDocumentData,
       AllDocumentTypes,
-      HeroBannerSlice,
-      HeroBannerSliceVariation,
-      HeroBannerSliceDefault,
+      HeroSlice,
+      HeroSliceDefaultPrimary,
+      HeroSliceVariation,
+      HeroSliceDefault,
     };
   }
 }

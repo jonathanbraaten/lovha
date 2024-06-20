@@ -1,0 +1,22 @@
+{
+  "format": "custom",
+  "id": "banner",
+  "label": "Banner",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "banner": {
+        "type": "Image",
+        "config": {
+          "label": "banner",
+          "constraint": {
+            "width": 2000,
+            "height": 2000
+          },
+          "thumbnails": []
+        }
+      }
+    }
+  }
+}
