@@ -1,7 +1,7 @@
 import Link from 'next/link';
 const navListItems: { id: number; path: string; name: string }[] = [
   { id: 1, path: '/', name: 'Hjem' },
-  { id: 2, path: '', name: 'Spill' },
+  { id: 2, path: '/games', name: 'Spill' },
   { id: 3, path: '', name: 'Prosjekter' },
   { id: 4, path: '/about', name: 'Om oss' },
   { id: 5, path: '/contact', name: 'Kontakt oss' },

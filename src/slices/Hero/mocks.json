@@ -25,6 +25,11 @@
 				"alt": null,
 				"__TYPE__": "ImageContent",
 				"thumbnails": {}
+			},
+			"alt": {
+				"__TYPE__": "FieldContent",
+				"value": "long",
+				"type": "Text"
 			}
 		},
 		"items": []
